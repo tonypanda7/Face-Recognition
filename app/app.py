@@ -18,7 +18,7 @@ class CampApp(App):
 
         # app layout
         self.cap=cv2.VideoCapture(0)
-        self.model=tf.keras.models.load_model('your model here',custom_objects={'L1dist':L1dist}) ###paste your model
+        self.model=tf.keras.models.load_model('your model here',custom_objects={'L1dist':L1dist}) # paste your model
         self.webcam=Image(size_hint=(1,.8))
         self.verification_label=Label(text='unintiated',size_hint=(1,.1))
         self.button=Button(text="verify",on_press=self.verify,size_hint=(1,.1))
@@ -58,16 +58,16 @@ class CampApp(App):
         # save the img
         ret,frame=self.cap.read()
         frame = frame[100:350, 200:450]
-        cv2.imwrite(os.path.join('app_live', 'input_img', 'input_image.jpg'),frame)
+        cv2.imwrite(os.path.join('dataStore', 'input_img', 'input_image.jpg'),frame)
 
         results = []
         detection_thresh=0.5
         validation_thresh=0.6
-        validation_dir = os.path.join('app_live', 'validation_img')
+        validation_dir = os.path.join('dataStore', 'validation_img')
         validation_imgs = os.listdir(validation_dir)
         for image in validation_imgs:
             input_img = self.preprocessing(
-                os.path.join('app_live', 'input_img', 'input_image.jpg')
+                os.path.join('dataStore', 'input_img', 'input_image.jpg')
             )
             verification_img = self.preprocessing(
                 os.path.join(validation_dir, image)
