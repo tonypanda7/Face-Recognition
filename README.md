@@ -1,5 +1,5 @@
 <p align="center">
-    <h1 align="center">SUKODU</h1>
+    <h1 align="center">FACE RECOGNITION</h1>
 </p>
 <p align="center">
     <em><code>❯ Tonypanda7 </code></em>
